@@ -1,15 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import useFirebase from './hooks/Firebase/useFirebase';
+import NavBar from './components/Shared/NavBar/NavBar';
+import Footer from './components/Shared/Footer/Footer';
+import { BrowserRouter } from 'react-router-dom';
+import Banner from './components/Banner/Banner';
+import FeaturedTours from './components/FeaturedTours/FeaturedTours';
+import WeSpecial from './components/WeSpecial/WeSpecial';
+import Reviews from './components/Reviews/Reviews';
+import HappyTravelers from './components/HappyTravelers/HappyTravelers';
+import AllCountdowns from './components/AllCountdowns/AllCountdowns';
 
 function App() {
 
-  const {signInWithGoogle} = useFirebase();
-
   return (
     <div className="App">
-      <button onClick={signInWithGoogle}>google sign in</button>
+
+      <BrowserRouter>
+      <NavBar></NavBar>
+      <Banner></Banner>
+      <FeaturedTours></FeaturedTours>
+      <HappyTravelers></HappyTravelers>
+      <AllCountdowns></AllCountdowns>
+      <WeSpecial></WeSpecial>
+      <Reviews></Reviews>
+      <Footer></Footer>
+      </BrowserRouter>
     </div>
   );
 }
