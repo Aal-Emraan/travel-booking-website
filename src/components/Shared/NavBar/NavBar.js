@@ -1,6 +1,5 @@
-import Button from '@restart/ui/esm/Button';
 import React from 'react';
-import { Container, Form, FormControl, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
+import { Container,  Nav, Navbar} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css'
 
@@ -20,7 +19,7 @@ const NavBar = () => {
                     color: "red"
                   }}
                 >Home</NavLink>
-                <NavLink className="text-decoration-none ms-4 text-dark"
+                <NavLink className="no-underline ml-6"
                 to="/tours"
                 activeStyle={{
                     fontWeight: "bold",
