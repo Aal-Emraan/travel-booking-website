@@ -3,7 +3,7 @@ import React from 'react';
 const WeSpecial = () => {
     return (
         <div>
-            why we are so special?
+            <h1 className="text-4xl">why we are so special?</h1>
         </div>
     );
 };
