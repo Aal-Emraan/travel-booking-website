@@ -10,8 +10,9 @@ const Tours = ({plans}) => {
                 <Card.Body>
                 <Card.Title>{plans.place}</Card.Title>
                 <Card.Text>
-                    {plans.description}
+                    {plans.description.slice(0,150)}
                 </Card.Text>
+                <button className="btn btn-success">See Details</button>
                 </Card.Body>
             </Card>
         </Col>
