@@ -5,7 +5,7 @@ import './NavBar.css'
 
 const NavBar = () => {
     return (
-        <div id="navbar" className="container fixed-top bg-light mt-4 rounded">
+        <div id="navbar" className="container bg-light mt-4 rounded">
           <Navbar collapseOnSelect expand="lg">
             <Container>
             <Navbar.Brand href="#home">TravelBooking</Navbar.Brand>
@@ -47,6 +47,13 @@ const NavBar = () => {
                     color: "red"
                   }}
                   >Login</NavLink>
+                <NavLink className="text-decoration-none ms-4"
+                to="/signup"
+                activeStyle={{
+                    fontWeight: "bold",
+                    color: "red"
+                  }}
+                  >Sign Up</NavLink>
               </Nav>
             </Navbar.Collapse>
             </Container>

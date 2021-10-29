@@ -15,7 +15,7 @@ const FeaturedTours = () => {
     console.log(featuredPlans);
     return (
         <div>
-            <h1 className="font-normal font-serif">Featured Tours</h1>
+            <h1 className="font-normal font-serif mt-5">Featured Tours</h1>
             <Row xs={1} md={3} className="g-4 container mx-auto">
                 {featuredPlans.map(plans => <Tours plans={plans}></Tours>)}
             </Row>
