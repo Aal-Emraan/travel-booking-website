@@ -21,7 +21,7 @@ const AddNewPlan = () => {
         <input {...register("img")} placeholder="image link.."  className="form-control bg-light shadow-sm p-3 mb-4 border-0"/>
         {errors.exampleRequired && <span>This field is required</span>}
         
-        <input type="submit" className="btn btn-dark ms-3" />
+        <input type="submit" value="Add Now" className="btn btn-dark ms-3" />
     </form>
     );
 };

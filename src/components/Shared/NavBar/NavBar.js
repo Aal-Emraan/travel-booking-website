@@ -11,7 +11,7 @@ const NavBar = () => {
         <div id="navbar" className="container bg-light mt-4 rounded">
           <Navbar collapseOnSelect expand="lg">
             <Container>
-            <Navbar.Brand href="#home">TravelBooking</Navbar.Brand>
+            <Navbar.Brand href="#home"><span className="font-semibold text-green-800 text-3xl">Travel</span><span className="font-semibold text-blue-600 text-3xl">Booking</span></Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ms-auto">

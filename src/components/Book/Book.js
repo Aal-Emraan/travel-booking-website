@@ -12,6 +12,8 @@ const Book = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
+        data.tour = tour;
+        data.status = 'pending'
         // console.log(data);
         fetch('http://localhost:5000/order', {
             method: 'POST',
@@ -19,12 +21,14 @@ const Book = () => {
             body: JSON.stringify(data)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            window.alert('Your Booking is panding.')
+            console.log(data)})
 
         reset();
     }
     useEffect(()=> {
-        fetch('/featuredplans.json')
+        fetch('http://localhost:5000/tours')
         .then(res => res.json())
         .then(data => {
             const getPlan = data.find(item => item.id === id)
@@ -47,7 +51,7 @@ const Book = () => {
             <input defaultValue={user.email} {...register("email", { required: true })} type="email" className="form-control bg-light shadow-sm p-3 mb-4 border-0"/>
             <input {...register("address", { required: true })} placeholder="Address"  className="form-control bg-light shadow-sm p-3 mb-4 border-0"/>
             <input {...register("phone", { required: true })} placeholder="Phone Number" type="number" className="form-control bg-light shadow-sm p-3 mb-4 border-0"/>
-            {errors.exampleRequired && <span>This field is required</span>}
+            {/* {errors.address && <span>This field is required</span>} */}
             <input type="submit" value="Book Now"  className="btn btn-danger d-block w-100 py-3 rounded-pill"/>
             {/* <Link to="/success"></Link>  */}
             </form>
