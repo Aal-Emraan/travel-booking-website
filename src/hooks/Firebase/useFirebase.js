@@ -6,7 +6,9 @@ initializeAuthentication();
 
 const useFirebase = () => {
 
+    const [user, setUser] = useState([]);
     const [error, setError] = useState("");
+
 
     const auth = getAuth();
 
@@ -15,7 +17,7 @@ const useFirebase = () => {
         const googleProvider = new GoogleAuthProvider();
         signInWithPopup(auth, googleProvider)
         .then(result => {
-            console.log(result)
+            setUser(result.user);
         })
         .catch(err => {
             setError(err.message);
@@ -24,7 +26,11 @@ const useFirebase = () => {
 
     }
 
+    // console.log(user);
+
     return {
+        user,
+        error,
         signInWithGoogle
     }
     

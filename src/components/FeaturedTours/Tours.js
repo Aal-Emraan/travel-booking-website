@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Tours = ({plans}) => {
-    console.log(plans);
     return (
         <Col>
             <Card>
@@ -12,7 +12,7 @@ const Tours = ({plans}) => {
                 <Card.Text>
                     {plans.description.slice(0,150)}
                 </Card.Text>
-                <button className="btn btn-success">See Details</button>
+                <Link to={`/book/${plans.id}`} className="btn btn-success">Book Now</Link>
                 </Card.Body>
             </Card>
         </Col>

@@ -1,10 +1,13 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import useFetchItems from '../../hooks/useFetchItems';
 
 const SignUp = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
+    const {tours} = useFetchItems();
+    console.log(tours);
     return (
         <div className="w-75 mx-auto shadow p-4 rounded mt-5">
             
