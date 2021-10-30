@@ -12,6 +12,7 @@ import AllTours from './components/AllTours/AllTours';
 import About from './components/About/About';
 import MyBookings from './components/MyBookings/MyBookings';
 import Success from './components/Book/Success';
+import AddNewPlan from './components/AddNewPlan/AddNewPlan';
 
 function App() {
 
@@ -32,6 +33,12 @@ function App() {
           </Route>
           <Route path="/bookings">
             <MyBookings></MyBookings>
+          </Route>
+          <Route path="/addnewplan">
+            <AddNewPlan></AddNewPlan>
+          </Route>
+          <Route path="/manageallbookings">
+            
           </Route>
           <Route path="/about">
             <About></About>

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Container,  Nav, Navbar} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import useFirebase from '../../../hooks/Firebase/useFirebase';
 import './NavBar.css'
 
 const NavBar = () => {
+  const {user, logOut} = useFirebase();
     return (
         <div id="navbar" className="container bg-light mt-4 rounded">
           <Navbar collapseOnSelect expand="lg">
@@ -26,6 +28,8 @@ const NavBar = () => {
                     color: "red"
                   }}
                   >All Tours</NavLink>
+                {user.email?
+                <> 
                 <NavLink className="text-decoration-none ms-4"
                 to="/bookings"
                 activeStyle={{
@@ -34,12 +38,24 @@ const NavBar = () => {
                   }}
                   >My Bookings</NavLink>
                 <NavLink className="text-decoration-none ms-4"
-                to="/about"
+                to="/manageallbookings"
                 activeStyle={{
                     fontWeight: "bold",
                     color: "red"
                   }}
-                  >About</NavLink>
+                  >Manage All Bookings</NavLink>
+                <NavLink className="text-decoration-none mx-4"
+                to="/addnewplan"
+                activeStyle={{
+                    fontWeight: "bold",
+                    color: "red"
+                  }}
+                  >Add New Tour</NavLink>
+                  <span>{user.displayName}</span>
+                  <button className="btn btn-dark ms-2" onClick={logOut}>Log Out</button>
+                  </>
+                  :
+                <>
                 <NavLink className="text-decoration-none ms-4"
                 to="/login"
                 activeStyle={{
@@ -54,6 +70,7 @@ const NavBar = () => {
                     color: "red"
                   }}
                   >Sign Up</NavLink>
+                  </>}
               </Nav>
             </Navbar.Collapse>
             </Container>
@@ -63,3 +80,12 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
+{/* <NavLink className="text-decoration-none ms-4"
+to="/about"
+activeStyle={{
+    fontWeight: "bold",
+    color: "red"
+  }}
+  >About</NavLink> */}

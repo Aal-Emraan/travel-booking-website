@@ -4,8 +4,18 @@ import useFetchItems from '../../hooks/useFetchItems';
 import Tours from '../FeaturedTours/Tours';
 
 const AllTours = () => {
+    const [tours, setTours] = useState([]);
 
-    const {tours} = useFetchItems();
+    useEffect(()=> {
+        fetch('http://localhost:5000/tours')
+        .then(res => res.json())
+        .then(data => setTours(data))
+
+    },[])
+
+    console.log(tours);
+
+    // const {tours} = useFetchItems();
 
     // const [tours, setTours] = useState([]);
 
@@ -15,7 +25,7 @@ const AllTours = () => {
     //     .then(data => setTours(data))
     // }
     //     ,[]);
-    console.log(tours);
+    // console.log(tours);
     return (
         <div>
             <h1 className="font-normal font-serif mt-5">Featured Tours</h1>

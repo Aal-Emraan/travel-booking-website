@@ -10,7 +10,7 @@ const Tours = ({plans}) => {
                 <Card.Body>
                 <Card.Title>{plans.place}</Card.Title>
                 <Card.Text>
-                    {plans.description.slice(0,150)}
+                    {plans.description?.slice(0,150)}
                 </Card.Text>
                 <Link to={`/book/${plans.id}`} className="btn btn-success">Book Now</Link>
                 </Card.Body>
