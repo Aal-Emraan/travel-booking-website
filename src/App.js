@@ -13,54 +13,57 @@ import About from './components/About/About';
 import MyBookings from './components/MyBookings/MyBookings';
 import Success from './components/Book/Success';
 import AddNewPlan from './components/AddNewPlan/AddNewPlan';
+import AuthProvider from './components/context/AuthProvider';
+import ManageBookings from './components/ManageBookings/ManageBookings';
 
 function App() {
 
   return (
     <div className="App">
-
-      <BrowserRouter>
-        <NavBar></NavBar>
-        <Switch>
-          <Route exact path="/">
-          <Home></Home>
-          </Route>
-          <Route path="/home">
-          <Home></Home>
-          </Route>
-          <Route path="/tours">
-            <AllTours></AllTours>     
-          </Route>
-          <Route path="/bookings">
-            <MyBookings></MyBookings>
-          </Route>
-          <Route path="/addnewplan">
-            <AddNewPlan></AddNewPlan>
-          </Route>
-          <Route path="/manageallbookings">
-            
-          </Route>
-          <Route path="/about">
-            <About></About>
-          </Route>
-          <Route path="/login">
-            <Login></Login>
-          </Route>
-          <Route path="/signup">
-            <SignUp></SignUp>
-          </Route>
-          <Route path="/book/:id">
-            <Book></Book>
-          </Route>
-          <Route path="/success">
-            <Success></Success>
-          </Route>
-          <Route path="*">
-            <h2>404 Not Found</h2>
-          </Route>
-        </Switch>
-      <Footer></Footer>
+      <AuthProvider>
+        <BrowserRouter>
+          <NavBar></NavBar>
+          <Switch>
+            <Route exact path="/">
+            <Home></Home>
+            </Route>
+            <Route path="/home">
+            <Home></Home>
+            </Route>
+            <Route path="/tours">
+              <AllTours></AllTours>     
+            </Route>
+            <Route path="/bookings">
+              <MyBookings></MyBookings>
+            </Route>
+            <Route path="/addnewplan">
+              <AddNewPlan></AddNewPlan>
+            </Route>
+            <Route path="/manageallbookings">
+              <ManageBookings></ManageBookings>
+            </Route>
+            <Route path="/about">
+              <About></About>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="/signup">
+              <SignUp></SignUp>
+            </Route>
+            <PrivateRoute path="/book/:id">
+              <Book></Book>
+            </PrivateRoute>
+            <Route path="/success">
+              <Success></Success>
+            </Route>
+            <Route path="*">
+              <h2>404 Not Found</h2>
+            </Route>
+          </Switch>
+        <Footer></Footer>
         </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
