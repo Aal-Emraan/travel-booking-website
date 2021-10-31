@@ -4,12 +4,13 @@ import { Table } from 'react-bootstrap';
 const ManageBookings = () => {
 
     const [bookings, setBookings] = useState([]);
+    const [isApproved, setIsApproved] = useState(false);
 
     useEffect(()=>{
         fetch('http://localhost:5000/manageallbookings')
         .then(res => res.json())
         .then(data => setBookings(data))
-    },[])
+    },[isApproved])
 
 
     const handleApprove = id => {
@@ -22,7 +23,8 @@ const ManageBookings = () => {
         .then(data => {
             if(data.modifiedCount>0){
                 console.log(data);
-                window.alert("Status Approved")
+                window.alert("Status Approved");
+                setIsApproved(true);
             }
         })
     }
