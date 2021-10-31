@@ -13,11 +13,37 @@ const ManageBookings = () => {
 
 
     const handleApprove = id => {
-        fetch('http://localhost:5000/status', {
+        fetch(`http://localhost:5000/status/${id}`, {
             method: 'PUT',
             headers: {'content-type':'application/json'},
-            body: JSON.stringify(id)
+            
         })
+        .then(res => res.json())
+        .then(data => {
+            if(data.modifiedCount>0){
+                console.log(data);
+                window.alert("Status Approved")
+            }
+        })
+    }
+
+    const handleDelete = id => {
+        const confirmation = window.confirm('Are you sure?');
+        if(confirmation){
+            fetch(`http://localhost:5000/delete/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.deletedCount > 0){
+                    window.alert('Booking Cancelled');
+                    const remainingOrders = bookings.filter(booking => booking._id !== id);
+                    setBookings(remainingOrders);
+                }
+            })
+
+        }
+
     }
 
     // console.log(bookings);
@@ -47,7 +73,7 @@ const ManageBookings = () => {
                     <td>{booking.tour?.date}</td>
                     <td>{booking.status}</td>
                     <td><botton className="btn btn-primary" onClick={() => handleApprove(booking._id)}>Approve</botton></td>
-                    <td><botton className="btn btn-danger">Cancel</botton></td>
+                    <td><botton className="btn btn-danger" onClick={() => handleDelete(booking._id)}>Cancel</botton></td>
                 </tr>
                 ))
              }

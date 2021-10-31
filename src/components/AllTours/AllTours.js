@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
-import useFetchItems from '../../hooks/useFetchItems';
 import Tours from '../FeaturedTours/Tours';
 
 const AllTours = () => {

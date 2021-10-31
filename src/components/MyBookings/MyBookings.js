@@ -1,22 +1,46 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 
 const MyBookings = () => {
     const {user} = useAuth();
-    console.log(user.email);
+    // console.log(user.email);
+    const [bookings, setBookings] = useState([]);
 
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/getuserbookings', {
-    //         method: 'GET',
-    //         headers: {'content-type': 'application/json'},
-    //         body: JSON.stringify(user.email)
-    //     })
-    //     .then(res => res.json())
-    //     .then(data => console.log(data))
-    // },[])
+   useEffect(()=>{
+       fetch(`http://localhost:5000/bookings/${user.email}`)
+       .then(res => res.json())
+       .then(data => {
+        //    const userBookings = data.filter(booking => booking.email === user.email);
+        //    setBookings(userBookings);
+           setBookings(data);
+
+       })
+   },[user]);
+
+   const handleDelete = id => {
+       const confirmation = window.confirm('Are you sure you want to delete?');
+       if(confirmation){
+        fetch(`http://localhost:5000/delete/${id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.deletedCount > 0){
+                window.alert('item deleted');
+                const remainingOrders = bookings.filter(booking => booking._id !== id);
+                setBookings(remainingOrders);
+            }
+        })
+
+       }
+
+}
+
+//    console.log(bookings);
     return (
         <div className="container mx-auto my-5">
+            <h3>My Bookings</h3>
             <Table responsive="md">
                 <thead>
                 <tr>
@@ -24,15 +48,21 @@ const MyBookings = () => {
                     <th>Place</th>
                     <th>Cost</th>
                     <th>Date</th>
+                    <th>Status</th>
+                    <th>Cancel Order</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                    <td>Table cell</td>
-                </tr>
+                {bookings.map(booking => (
+                <tr key={booking._id}>
+                    <td>{bookings.indexOf(booking)+1}</td>
+                    <td>{booking.tour?.place}</td>
+                    <td>{booking.tour?.cost}</td>
+                    <td>{booking.tour?.date}</td>
+                    <td>{booking.status}</td>
+                    <td><button className="btn btn-danger" onClick={()=> handleDelete(booking._id)}>Cancel</button></td>
+                </tr>))
+                }
                 </tbody>
             </Table>
         </div>

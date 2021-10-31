@@ -13,7 +13,7 @@ const Book = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.tour = tour;
-        data.status = 'pending'
+        data.status = 'Pending'
         // console.log(data);
         fetch('http://localhost:5000/order', {
             method: 'POST',
