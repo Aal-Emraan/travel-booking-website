@@ -4,7 +4,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 const Reviews = () => {
     return (
         <div className="py-5">
-            <h3>Top Reviews</h3>
+            <h3 className="text-3xl">Top Reviews</h3>
             <Row xs={1} md={3} className="container mx-auto">
                 <Col>
                     <Card className="border-0  shadow-sm">

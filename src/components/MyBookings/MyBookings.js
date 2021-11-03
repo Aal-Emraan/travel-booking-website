@@ -44,7 +44,7 @@ const MyBookings = () => {
 //    console.log(bookings);
     return (
         <div className="container mx-auto my-5">
-            <h3>My Bookings</h3>
+            <h3 className="text-3xl my-2">My Bookings</h3>
             <Table responsive="md">
                 <thead>
                 <tr>
