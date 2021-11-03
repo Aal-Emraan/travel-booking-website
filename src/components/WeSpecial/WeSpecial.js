@@ -4,7 +4,7 @@ import { Col, Row } from 'react-bootstrap';
 const WeSpecial = () => {
     return (
         <div className="my-5">
-            <h1 className="text-4xl">why we are so special?</h1>
+            <h1 className="text-4xl">We We Are So Special?</h1>
             <Row xs={1} md={2} className="container mx-auto my-5 shadow">
                 <Col md={5}>
                     <img src="https://i.ibb.co/WpNJx0X/Guide-and-group-of-tourists-listening-her-and-having-an-excursion-vector-illustration-in-flat-design.jpg" alt="" />

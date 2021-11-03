@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Row, Spinner } from 'react-bootstrap';
 import Tours from '../FeaturedTours/Tours';
 
 const AllTours = () => {
     const [tours, setTours] = useState([]);
 
     useEffect(()=> {
-        fetch('http://localhost:5000/tours')
+        fetch('https://dry-beach-57081.herokuapp.com/tours')
         .then(res => res.json())
         .then(data => setTours(data))
 
-    },[])
+    },[]);
+
+    if(tours.length === 0){
+        return <Spinner animation="grow" variant="primary" />
+    }
 
     // const {tours} = useFetchItems();
 

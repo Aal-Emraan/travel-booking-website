@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Spinner, Table } from 'react-bootstrap';
 
 const ManageBookings = () => {
 
@@ -7,14 +7,18 @@ const ManageBookings = () => {
     const [isApproved, setIsApproved] = useState(false);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/manageallbookings')
+        fetch('https://dry-beach-57081.herokuapp.com/manageallbookings')
         .then(res => res.json())
         .then(data => setBookings(data))
     },[isApproved])
 
+    if(bookings.length === 0){
+        return <Spinner animation="grow" variant="primary" />
+    }
+
 
     const handleApprove = id => {
-        fetch(`http://localhost:5000/status/${id}`, {
+        fetch(`https://dry-beach-57081.herokuapp.com/status/${id}`, {
             method: 'PUT',
             headers: {'content-type':'application/json'},
             
@@ -32,7 +36,7 @@ const ManageBookings = () => {
     const handleDelete = id => {
         const confirmation = window.confirm('Are you sure?');
         if(confirmation){
-            fetch(`http://localhost:5000/delete/${id}`, {
+            fetch(`https://dry-beach-57081.herokuapp.com/delete/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

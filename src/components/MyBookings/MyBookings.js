@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Spinner, Table } from 'react-bootstrap';
 import useAuth from '../../hooks/useAuth';
 
 const MyBookings = () => {
@@ -8,7 +8,7 @@ const MyBookings = () => {
     const [bookings, setBookings] = useState([]);
 
    useEffect(()=>{
-       fetch(`http://localhost:5000/bookings/${user.email}`)
+       fetch(`https://dry-beach-57081.herokuapp.com/bookings/${user.email}`)
        .then(res => res.json())
        .then(data => {
         //    const userBookings = data.filter(booking => booking.email === user.email);
@@ -18,10 +18,14 @@ const MyBookings = () => {
        })
    },[user]);
 
+   if(bookings.length === 0){
+    return <Spinner animation="grow" variant="primary" />
+}
+
    const handleDelete = id => {
        const confirmation = window.confirm('Are you sure you want to delete?');
        if(confirmation){
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://dry-beach-57081.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

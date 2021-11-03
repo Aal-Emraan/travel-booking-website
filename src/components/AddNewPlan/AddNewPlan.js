@@ -5,7 +5,7 @@ const AddNewPlan = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch('http://localhost:5000/addnewplan', {
+        fetch('https://dry-beach-57081.herokuapp.com/addnewplan', {
             method: 'POST',
             headers: {'content-type':'application/json'},
             body: JSON.stringify(data)

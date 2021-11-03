@@ -15,7 +15,7 @@ const Book = () => {
         data.tour = tour;
         data.status = 'Pending'
         // console.log(data);
-        fetch('http://localhost:5000/order', {
+        fetch('https://dry-beach-57081.herokuapp.com/order', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(data)
@@ -28,7 +28,7 @@ const Book = () => {
         reset();
     }
     useEffect(()=> {
-        fetch('http://localhost:5000/tours')
+        fetch('https://dry-beach-57081.herokuapp.com/tours')
         .then(res => res.json())
         .then(data => {
             const getPlan = data.find(item => item.id === id)
