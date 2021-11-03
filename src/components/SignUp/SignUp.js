@@ -1,15 +1,30 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import useFirebase from '../../hooks/Firebase/useFirebase';
 import useFetchItems from '../../hooks/useFetchItems';
+import { useHistory, useLocation } from 'react-router';
 
 const SignUp = () => {
+
+    const {signInWithGoogle} = useFirebase();
+    const location = useLocation();
+    const history = useHistory();
+    const uri = location.state?.from || "/home";
+  
+    const handleGoogleSignIn = () => {
+      signInWithGoogle()
+      .then(res => {
+        history.push(uri)
+      })
+    }
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     const {tours} = useFetchItems();
     console.log(tours);
     return (
-        <div className="w-75 mx-auto shadow p-4 rounded mt-5">
+        <div className="w-75 mx-auto shadow p-4 rounded my-5">
             
             <h4 className="fw-normal mb-4">Sign Up</h4>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -22,8 +37,7 @@ const SignUp = () => {
                 </form>
                 <p className="mt-4 fst-italic">Already have an account? <Link to="/login"> Login</Link></p>
                 <p className="text-muted">-------------- or --------------</p>
-                <button className="btn btn-success">Google Sign In</button>
-                <button className="btn btn-dark ms-3">Github Sign In</button>
+                <button className="btn btn-success" onClick={handleGoogleSignIn}>Google Sign In</button>
             
         </div>
     );

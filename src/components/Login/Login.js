@@ -32,7 +32,7 @@ const Login = () => {
       reset();
     };
     return (
-        <div  className="w-75 mx-auto shadow p-4 rounded mt-5">
+        <div  className="w-75 mx-auto shadow p-4 rounded my-5">
         <h4 className="fw-normal mb-4">Login</h4>
             <form onSubmit={handleSubmit(onSubmit)}>
             <input {...register("name")} placeholder="Name" className="form-control bg-light shadow-sm p-3 mb-4 border-0"/>
@@ -44,7 +44,6 @@ const Login = () => {
             <p className="mt-4 fst-italic">New user? <Link to="/signup"> Sign Up</Link></p>
                 <p className="text-muted">-------------- or --------------</p>
                 <button className="btn btn-success" onClick={handleGoogleSignIn}>Google Sign In</button>
-                <button className="btn btn-dark ms-3">Github Sign In</button>
       </div>
     );
 };

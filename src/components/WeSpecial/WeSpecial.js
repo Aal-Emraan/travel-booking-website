@@ -11,13 +11,13 @@ const WeSpecial = () => {
                 </Col>
                 <Col>
                     <h2 className="mt-10">Our Professional Guides</h2>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum modi molestiae ipsum repellat sunt recusandae architecto quas doloribus minima illo nesciunt soluta odio accusantium id at blanditiis amet quidem dolorum in sapiente quae ullam velit, incidunt alias. Magnam dignissimos provident similique quas dolorem? Assumenda facere reprehenderit, temporibus nihil labore beatae.
+                    Tour guides should be able to explain facts, history, landmarks, figures, local customs and more. They should also be able to answer additional tour related questions that may come up during the trip. Knowledgeable guides can help make your trip insightful and memorable.
                 </Col>
             </Row>
             <Row xs={1} md={2} className="container mx-auto my-5 shadow">
                 <Col>
                     <h2 className="mt-10">Best Hotels To Stay</h2>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum modi molestiae ipsum repellat sunt recusandae architecto quas doloribus minima illo nesciunt soluta odio accusantium id at blanditiis amet quidem dolorum in sapiente quae ullam velit, incidunt alias. Magnam dignissimos provident similique quas dolorem? Assumenda facere reprehenderit, temporibus nihil labore beatae.
+                    A Luxury Hotel is considered a hotel that provides a luxurious accommodation experience to the guest. There are no set standards such as stars, for luxury hotels. Often 4 or 5-star hotels describe themselves as ‘luxury’. This also means that any accommodation type can use the term ‘luxury’. including boutique hotels, resorts, and B&Bs.
                 </Col>
                 <Col md={5}>
                     <img src="https://i.ibb.co/1sync7g/2n.jpg" alt="" />
@@ -29,7 +29,7 @@ const WeSpecial = () => {
                 </Col>
                 <Col>
                     <h2 className="mt-10">Premium Class Travlelling</h2>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum modi molestiae ipsum repellat sunt recusandae architecto quas doloribus minima illo nesciunt soluta odio accusantium id at blanditiis amet quidem dolorum in sapiente quae ullam velit, incidunt alias. Magnam dignissimos provident similique quas dolorem? Assumenda facere reprehenderit, temporibus nihil labore beatae.
+                    The origin of the word "travel" is most likely lost to history. The term "travel" may originate from the Old French word travail, which means 'work'. According to the Merriam Webster dictionary, the first known use of the word travel was in the 14th century. It also states that the word comes from Middle English travailen, travelen which means to torment, labor, strive, journey and earlier from Old French travailler which means to work strenuously, toil.In English, people still occasionally use the words travail, which means struggle.
                 </Col>
             </Row>
         </div>
