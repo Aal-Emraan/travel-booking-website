@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Travel Booking
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Go to our website to book your travel now with [Travel Booking](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

@@ -14,6 +14,7 @@ import Success from './components/Book/Success';
 import AddNewPlan from './components/AddNewPlan/AddNewPlan';
 import AuthProvider from './components/context/AuthProvider';
 import ManageBookings from './components/ManageBookings/ManageBookings';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
 
@@ -32,30 +33,30 @@ function App() {
             <Route path="/tours">
               <AllTours></AllTours>     
             </Route>
-            <Route path="/bookings">
+            <PrivateRoute path="/bookings">
               <MyBookings></MyBookings>
-            </Route>
-            <Route path="/addnewplan">
+            </PrivateRoute>
+            <PrivateRoute path="/addnewplan">
               <AddNewPlan></AddNewPlan>
-            </Route>
-            <Route path="/manageallbookings">
+            </PrivateRoute>
+            <PrivateRoute path="/manageallbookings">
               <ManageBookings></ManageBookings>
-            </Route>
-            <Route path="/about">
+            </PrivateRoute>
+            {/* <PrivateRoute path="/about">
               <About></About>
-            </Route>
+            </PrivateRoute> */}
             <Route path="/login">
               <Login></Login>
             </Route>
             <Route path="/signup">
               <SignUp></SignUp>
             </Route>
-            <Route path="/book/:id">
+            <PrivateRoute path="/book/:id">
               <Book></Book>
-            </Route>
-            <Route path="/success">
+            </PrivateRoute>
+            <PrivateRoute path="/success">
               <Success></Success>
-            </Route>
+            </PrivateRoute>
             <Route path="*">
               <h2>404 Not Found</h2>
             </Route>

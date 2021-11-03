@@ -2,10 +2,29 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import useFirebase from '../../hooks/Firebase/useFirebase';
+import { useHistory, useLocation } from 'react-router';
 
 const Login = () => {
 
   const {signInWithGoogle} = useFirebase();
+  const location = useLocation();
+  const history = useHistory();
+  const uri = location.state?.from || "/home";
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+    .then(res => {
+      history.push(uri)
+    })
+  //   .then(result => {
+  //     setUser(result.user);
+  //     console.log(result.user);
+  // })
+  // .catch(err => {
+  //     setError(err.message);
+  //     console.log(err.message);
+  // })
+  }
     
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const onSubmit = data => {
@@ -24,7 +43,7 @@ const Login = () => {
             </form>
             <p className="mt-4 fst-italic">New user? <Link to="/signup"> Sign Up</Link></p>
                 <p className="text-muted">-------------- or --------------</p>
-                <button className="btn btn-success" onClick={signInWithGoogle}>Google Sign In</button>
+                <button className="btn btn-success" onClick={handleGoogleSignIn}>Google Sign In</button>
                 <button className="btn btn-dark ms-3">Github Sign In</button>
       </div>
     );

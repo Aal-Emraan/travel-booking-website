@@ -15,15 +15,7 @@ const useFirebase = () => {
     const signInWithGoogle = () => {
 
         const googleProvider = new GoogleAuthProvider();
-        signInWithPopup(auth, googleProvider)
-        .then(result => {
-            setUser(result.user);
-            console.log(result.user);
-        })
-        .catch(err => {
-            setError(err.message);
-            console.log(err.message);
-        })
+        return signInWithPopup(auth, googleProvider)
 
     }
 
